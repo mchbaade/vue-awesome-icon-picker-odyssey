@@ -1,0 +1,68 @@
+{
+  "name": "@rightbraintechbd/vue-awesome-icon-picker",
+  "version": "1.0.0",
+  "description": "A Vue.js icon picker component to easily pick a FontAwesome 5 Icon & use it.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RightBrainTechBD/vue-awesome-icon-picker.git"
+  },
+  "keywords": [
+    "vuejs",
+    "icon",
+    "picker",
+    "fontawesome",
+    "nuxtjs",
+    "vue",
+    "component"
+  ],
+  "author": "Jonson B. <www.jbc.bd@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RightBrainTechBD/vue-awesome-icon-picker/issues"
+  },
+  "homepage": "https://github.com/RightBrainTechBD/vue-awesome-icon-picker#readme",
+  "main": "dist/vue-awesome-icon-picker.ssr.js",
+  "browser": "dist/vue-awesome-icon-picker.esm.js",
+  "module": "dist/vue-awesome-icon-picker.esm.js",
+  "unpkg": "dist/vue-awesome-icon-picker.min.js",
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve dev/serve.js",
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@rollup/plugin-alias": "^2.2.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-json": "^4.0.3",
+    "@rollup/plugin-replace": "^2.3.2",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "cross-env": "^7.0.2",
+    "minimist": "^1.2.5",
+    "rollup": "^2.7.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-vue": "^5.1.6",
+    "sass-loader": "^8.0.2",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "@fortawesome/fontawesome-free": "^5.13.0"
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}
