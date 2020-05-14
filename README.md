@@ -22,6 +22,11 @@ Install using `npm`
 npm install --save @rightbraintechbd/vue-awesome-icon-picker
 ```
 
+OR use it via `cdn`   
+
+```html
+<script src="https://unpkg.com/@rightbraintechbd/vue-awesome-icon-picker@1.0.0/dist/vue-awesome-icon-picker.min.js"></script>
+```
 
 Then Register The Component Globally:
 
