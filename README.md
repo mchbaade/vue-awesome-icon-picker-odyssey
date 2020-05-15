@@ -25,7 +25,7 @@ npm install --save @rightbraintechbd/vue-awesome-icon-picker
 OR use it via `cdn`   
 
 ```html
-<script src="https://unpkg.com/@rightbraintechbd/vue-awesome-icon-picker@1.0.0/dist/vue-awesome-icon-picker.min.js"></script>
+<script src="https://unpkg.com/@rightbraintechbd/vue-awesome-icon-picker@1.1.0/dist/vue-awesome-icon-picker.min.js"></script>
 ```
 
 Then Register The Component Globally:
@@ -113,10 +113,10 @@ VueAwesomeIconPicker will emit a `selected(icon)` event when user selects an ico
 }
 ```
 
-It will emit an `Array` containing icon data like `['type', 'name']` 
+It will emit an `Object` containing icon data like `{ type, name }` 
 
 ```javascript
-['fab', 'facebook']
+{ type: 'fab', name: 'facebook' }
 ```
 
 [MIT](http://opensource.org/licenses/MIT)

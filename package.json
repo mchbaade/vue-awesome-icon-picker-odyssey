@@ -1,6 +1,6 @@
 {
   "name": "@rightbraintechbd/vue-awesome-icon-picker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Vue.js icon picker component to easily pick a FontAwesome 5 Icon & use it.",
   "repository": {
     "type": "git",

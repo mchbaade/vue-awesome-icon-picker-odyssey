@@ -1,7 +1,7 @@
 <template>
   <div class="rbt-icon-picker">
-        <span class="icon-preview" v-if="iconPreview && selectedIcon">
-            <i :class="`${selectedIcon[0]} fa-${selectedIcon[1]}`"></i>
+        <span class="icon-preview" v-if="iconPreview && selectedIcon.name">
+            <i :class="`${selectedIcon.type} fa-${selectedIcon.name}`"></i>
         </span>
     <button @click="popUpActive = true" class="picker-btn">
       {{ button }}
@@ -11,7 +11,7 @@
       <div class="rip-popup-bg"></div>
       <div class="rip-popup">
         <header class="rip-popup-header">
-          <h3>{{ title }}</h3>
+          <h2>{{ title }}</h2>
           <span @click="popUpActive = false">&times;</span>
         </header>
 
@@ -19,27 +19,83 @@
           <div class="rip-search">
             <div class="rip-input">
               <label for="ripSearch" style="display: none;">Search for Icon</label>
-              <input id="ripSearch" placeholder="Search for Icon" v-model="searchValue"/>
+              <input id="ripSearch" placeholder="Search for Icon" v-model="searchText" @input="searchTextChanged">
               <span class="input-append">
-                            <i class="fas fa-search"></i>
-                        </span>
+                  <i class="fas fa-search"></i>
+              </span>
             </div>
           </div>
 
           <div class="rip-content">
-            <ul class="rip-row">
-              <li v-for="(icon, index) in viewableIcons" :key="index" class="rip-col">
-                <div class="icon-content text-center">
-                  <div class="icon-el" @click="selectIcon(icon)">
-                    <!--<font-awesome-icon :icon="icon" />-->
-                    <i :class="`${icon[0]} fa-${icon[1]}`"></i>
+            <div class="rip-not-found" v-show="loading">
+              <i class="fas fa-spinner fa-pulse"></i>
+            </div>
+
+            <div class="rip-icons" v-show="!loading">
+
+              <h4 class="icon-title">
+                Regular Icons
+              </h4>
+              <p style="text-align: center;" v-if="regularIcons.length <= 0">
+                <i class="fas fa-eye-slash"></i>
+                Sorry, No icons found!
+              </p>
+              <ul class="rip-row" v-if="regularIcons.length > 0">
+                <li v-for="(icon, index) in regularIcons" :key="index" class="rip-col">
+                  <div class="icon-content text-center">
+                    <div class="icon-el" @click="selectIcon(icon, 'far')">
+                      <i :class="`far fa-${icon}`"></i>
+                    </div>
+                    <div class="icon-title">
+                      {{ icon }}
+                    </div>
                   </div>
-                  <div class="icon-title">
-                    {{ icon[1] }}
+                </li>
+              </ul>
+
+              <h4 class="icon-title">
+                Brand Icons
+              </h4>
+              <p style="text-align: center;" v-if="brandIcons.length <= 0">
+                <i class="fas fa-eye-slash"></i>
+                Sorry, No Brand icons found!
+              </p>
+
+              <ul class="rip-row" v-if="brandIcons.length > 0">
+                <li v-for="(icon, index) in brandIcons" :key="index" class="rip-col">
+                  <div class="icon-content text-center">
+                    <div class="icon-el" @click="selectIcon(icon, 'fab')">
+                      <i :class="`fab fa-${icon}`"></i>
+                    </div>
+                    <div class="icon-title">
+                      {{ icon }}
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+
+              <h4 class="icon-title">
+                Solid Icons
+              </h4>
+              <p style="text-align: center;" v-if="solidIcons.length <= 0">
+                <i class="fas fa-eye-slash"></i>
+                Sorry, No Solid icons found!
+              </p>
+
+              <ul class="rip-row" v-if="solidIcons.length > 0">
+                <li v-for="(icon, index) in solidIcons" :key="index" class="rip-col">
+                  <div class="icon-content text-center">
+                    <div class="icon-el" @click="selectIcon(icon, 'fas')">
+                      <i :class="`fas fa-${icon}`"></i>
+                    </div>
+                    <div class="icon-title">
+                      {{ icon }}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
           </div>
         </div>
       </div>
@@ -48,7 +104,7 @@
 </template>
 
 <script>
-  import ripIcons from './assets/icons.json';
+  import ripIcons from './assets/icons';
   import('@fortawesome/fontawesome-free/js/all');
 
   export default {
@@ -70,44 +126,78 @@
     data() {
       return {
         loading: false,
-        allIcons: [],
-        resultIcons: [],
+        allIcons: {
+            brand: [],
+            regular: [],
+            solid: []
+        },
 
         popUpActive: false,
-        selectedIcon: '',
-        searchValue: ''
+        selectedIcon: {
+          name: null,
+          type: null
+        },
+        searchText: '',
+
+        searchIconNotFound: false
       }
     },
     methods: {
-      selectIcon(icon) {
-        this.selectedIcon = icon;
+      selectIcon(icon, type) {
+        this.selectedIcon.type = type;
+        this.selectedIcon.name = icon;
         this.popUpActive = false;
-        this.$emit('selected', icon);
+        this.$emit('selected', this.selectedIcon);
+      },
+      searchTextChanged() {
+        this.searchIcon(this.searchText);
+      },
+      setDefaultIcons() {
+        this.allIcons.brand = ripIcons.brand;
+        this.allIcons.regular = ripIcons.regular;
+        this.allIcons.solid = ripIcons.solid;
+      },
+      searchIcon(txt) {
+        this.loading = true;
+        if(txt && txt.length > 0) {
+          setTimeout(() => {
+            this.loading = false;
+          }, 950);
+
+          txt = txt.toLowerCase();
+          Object.keys(ripIcons).forEach(key => {
+            setTimeout(() => {
+              let icons = ripIcons[key].filter(ico => ico.indexOf(txt) > -1);
+              if(icons && icons.length > 0) {
+                this.allIcons[key] = icons;
+              } else {
+                this.allIcons[key] = [];
+              }
+            }, 320);
+          });
+        } else {
+          setTimeout(() => {
+            this.setDefaultIcons();
+            this.loading = false;
+          }, 950);
+        }
       }
     },
     created() {
-      Object.keys(ripIcons).forEach(key => {
-        let i = ripIcons[key].split(' ');
-        this.allIcons.push([i[0], i[1].substr(3)]);
-      });
+      this.setDefaultIcons();
     },
     computed: {
       popupActiveStyle() {
         return !this.popUpActive ? 'display: none;' : '';
       },
-      viewableIcons() {
-        return this.resultIcons && this.resultIcons.length > 0
-                ? this.resultIcons
-                : this.allIcons;
-      }
-    },
-    watch: {
-      'searchValue': function (val) {
-        if(!val) {
-          this.resultIcons = [];
-        } else {
-          this.resultIcons = this.allIcons.filter(icon => icon[1].search(val.toLowerCase()) >= 0)
-        }
+      brandIcons() {
+        return this.loading ? [] : this.allIcons.brand;
+      },
+      solidIcons() {
+        return this.loading ? [] : this.allIcons.solid;
+      },
+      regularIcons() {
+        return this.loading ? [] : this.allIcons.regular;
       }
     }
   };

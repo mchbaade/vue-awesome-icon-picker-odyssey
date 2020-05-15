@@ -69,10 +69,10 @@
             background: rgba(0,0,0,.05);
             border-radius: 5px 5px;
             position: relative;
-            h3 {
+            h2 {
                 transition: all .23s ease .1s;
                 padding: 8px 8px 8px 12px;
-                font-size: 17px;
+                font-size: 18px;
                 text-align: center;
                 width: 100%;
             }
@@ -143,6 +143,26 @@
             }
             .rip-content {
                 width: 100%;
+                .rip-not-found {
+                    min-height: 75vh;
+                    display: flex;
+                    align-items: center;
+                    align-self: center;
+                    align-content: center;
+                    min-width: 100%;
+                    text-align: center;
+                    svg {
+                        margin: 0 auto;
+                        font-size: 50px;
+                        color: #adb5bd;
+                    }
+                }
+                h4.icon-title {
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                    margin-bottom: 25px;
+                }
                 .rip-row {
                     width: 100%;
                     display: flex;
