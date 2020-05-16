@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/RightBrainTechBD/vue-awesome-icon-picker.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "vuejs",
     "icon",
