@@ -1,7 +1,7 @@
 <template>
   <div class="rbt-icon-picker">
         <span class="icon-preview" v-if="iconPreview && selectedIcon.name">
-            <i :class="`${selectedIcon.type} fa-${selectedIcon.name}`"></i>
+            <i :class="`${selectedIcon.type} mdi-${selectedIcon.name}`"></i>
         </span>
     <button @click="popUpActive = true" class="picker-btn" type="button">
       {{ button }}
@@ -21,14 +21,14 @@
               <label for="ripSearch" style="display: none;">Search for Icon</label>
               <input id="ripSearch" placeholder="Search for Icon" v-model="searchText" @input="searchTextChanged">
               <span class="input-append">
-                  <i class="fas fa-search"></i>
+                  <i class="mdi mdi-search"></i>
               </span>
             </div>
           </div>
 
           <div class="rip-content">
             <div class="rip-not-found" v-show="loading">
-              <i class="fas fa-spinner fa-pulse"></i>
+              <i class="mdi mdi-spinner mdi-pulse"></i>
             </div>
 
             <div class="rip-icons" v-show="!loading">
@@ -37,14 +37,14 @@
                 Regular Icons
               </h4>
               <p style="text-align: center;" v-if="regularIcons.length <= 0">
-                <i class="fas fa-eye-slash"></i>
+                <i class="mdi mdi-eye-slash"></i>
                 Sorry, No icons found!
               </p>
               <ul class="rip-row" v-if="regularIcons.length > 0">
                 <li v-for="(icon, index) in regularIcons" :key="index" class="rip-col">
                   <div class="icon-content text-center">
-                    <div class="icon-el" @click="selectIcon(icon, 'far')">
-                      <i :class="`far fa-${icon}`"></i>
+                    <div class="icon-el" @click="selectIcon(icon, 'mdi')">
+                      <i :class="`mdi mdi-${icon}`"></i>
                     </div>
                     <div class="icon-title">
                       {{ icon }}
@@ -53,47 +53,6 @@
                 </li>
               </ul>
 
-              <h4 class="icon-title">
-                Brand Icons
-              </h4>
-              <p style="text-align: center;" v-if="brandIcons.length <= 0">
-                <i class="fas fa-eye-slash"></i>
-                Sorry, No Brand icons found!
-              </p>
-
-              <ul class="rip-row" v-if="brandIcons.length > 0">
-                <li v-for="(icon, index) in brandIcons" :key="index" class="rip-col">
-                  <div class="icon-content text-center">
-                    <div class="icon-el" @click="selectIcon(icon, 'fab')">
-                      <i :class="`fab fa-${icon}`"></i>
-                    </div>
-                    <div class="icon-title">
-                      {{ icon }}
-                    </div>
-                  </div>
-                </li>
-              </ul>
-
-              <h4 class="icon-title">
-                Solid Icons
-              </h4>
-              <p style="text-align: center;" v-if="solidIcons.length <= 0">
-                <i class="fas fa-eye-slash"></i>
-                Sorry, No Solid icons found!
-              </p>
-
-              <ul class="rip-row" v-if="solidIcons.length > 0">
-                <li v-for="(icon, index) in solidIcons" :key="index" class="rip-col">
-                  <div class="icon-content text-center">
-                    <div class="icon-el" @click="selectIcon(icon, 'fas')">
-                      <i :class="`fas fa-${icon}`"></i>
-                    </div>
-                    <div class="icon-title">
-                      {{ icon }}
-                    </div>
-                  </div>
-                </li>
-              </ul>
 
             </div>
           </div>
@@ -106,17 +65,18 @@
 <script>
   import ripIcons from './assets/icons';
   import('@fortawesome/fontawesome-free/js/all');
+  import("@mdi/font/css/materialdesignicons.css");
 
   export default {
     name: 'VueAwesomeIconPicker',
     props: {
       button: {
         type: String,
-        default: 'Pick A Icon'
+        default: 'Escolha um ícone'
       },
       title: {
         type: String,
-        default: 'Vue Awesome Icon Picker'
+        default: 'Escolha um ícone'
       },
       iconPreview: {
         type: Boolean,
@@ -153,9 +113,7 @@
         this.searchIcon(this.searchText);
       },
       setDefaultIcons() {
-        this.allIcons.brand = ripIcons.brand;
         this.allIcons.regular = ripIcons.regular;
-        this.allIcons.solid = ripIcons.solid;
       },
       searchIcon(txt) {
         this.loading = true;
@@ -189,12 +147,6 @@
     computed: {
       popupActiveStyle() {
         return !this.popUpActive ? 'display: none;' : '';
-      },
-      brandIcons() {
-        return this.loading ? [] : this.allIcons.brand;
-      },
-      solidIcons() {
-        return this.loading ? [] : this.allIcons.solid;
       },
       regularIcons() {
         return this.loading ? [] : this.allIcons.regular;

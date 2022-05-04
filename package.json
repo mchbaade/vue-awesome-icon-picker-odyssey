@@ -41,12 +41,15 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "@mdi/js": "^6.6.96",
+    "@mdi/svg": "^6.6.96",
     "fs": "0.0.1-security",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
+    "@mdi/font": "^6.6.96",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-json": "^4.1.0",

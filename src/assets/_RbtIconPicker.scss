@@ -6,17 +6,17 @@
     }
     .picker-btn {
         color: #fff;
-        background: #339af0;
+        background: #4ED1B3;
         padding: 12px 25px;
         border: 0;
-        border-radius: 2px;
+        border-radius: 7px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.02em;
         cursor: pointer;
         transition: all .25s ease-in;
         &:hover {
-            background: #2c89d6;
+            background: #35B89A;
         }
     }
 }

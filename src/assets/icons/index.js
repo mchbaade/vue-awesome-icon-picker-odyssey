@@ -2,6 +2,6 @@ import solid from "./solid";
 import regular from "./regular";
 import brand from "./brand";
 
-const icons = { solid, brand, regular };
+const icons = { regular };
 
 export default icons;
