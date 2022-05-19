@@ -1,7 +1,7 @@
 <template>
   <div class="rbt-icon-picker">
-        <span class="icon-preview" v-if="iconPreview && selectedIcon.name">
-            <i :class="`${selectedIcon.type} mdi-${selectedIcon.name}`"></i>
+        <span class="icon-preview" v-if="iconPreview && (selectedIcon.name || iconPlaceholder)">
+            <i :class="`${selectedIcon.type || 'mdi'} mdi-${selectedIcon.name || iconPlaceholder}`" :style="{ color: getcolorMdi }"></i>
         </span>
     <button @click="popUpActive = true" class="picker-btn" type="button">
       {{ button }}
@@ -44,7 +44,7 @@
                 <li v-for="(icon, index) in regularIcons" :key="index" class="rip-col">
                   <div class="icon-content text-center">
                     <div class="icon-el" @click="selectIcon(icon, 'mdi')">
-                      <i :class="`mdi mdi-${icon}`"></i>
+                      <i :class="`mdi mdi-${icon}`" ></i>
                     </div>
                     <div class="icon-title">
                       {{ icon }}
@@ -70,6 +70,10 @@
   export default {
     name: 'VueAwesomeIconPicker',
     props: {
+      colorMdi: {
+        type: String,
+        default: '#FFFFFF'
+      },
       button: {
         type: String,
         default: 'Escolha um ícone'
@@ -80,8 +84,17 @@
       },
       iconPreview: {
         type: Boolean,
-        default: true
+        default: false
+      },
+      iconPlaceholder: {
+        type: String,
+        default: ''
+      },
+      value: {
+        type: String,
+        default: ''
       }
+      
     },
     data() {
       return {
@@ -98,15 +111,17 @@
           type: null
         },
         searchText: '',
+        value: '',
 
-        searchIconNotFound: false
+        searchIconNotFound: false,
+        defaultColor: ''
       }
     },
     methods: {
       selectIcon(icon, type) {
         this.selectedIcon.type = type;
         this.selectedIcon.name = icon;
-        this.popUpActive = false;
+        this.popUpActive = false; 
         this.$emit('selected', this.selectedIcon);
       },
       searchTextChanged() {
@@ -150,6 +165,9 @@
       },
       regularIcons() {
         return this.loading ? [] : this.allIcons.regular;
+      },
+      getcolorMdi() {
+        return this.colorMdi;
       }
     }
   };
