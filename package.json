@@ -1,10 +1,10 @@
 {
-  "name": "@rightbraintechbd/vue-awesome-icon-picker-odyssey",
-  "version": "1.1.0",
-  "description": "A Vue.js icon picker component to easily pick a FontAwesome 5 Icon & use it.",
+  "name": "vue-material-design-icon-picker",
+  "version": "1.0.0",
+  "description": "Um componente seletor de ícone baseado em Vue.js com materialDesignIcon",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RightBrainTechBD/vue-awesome-icon-picker.git"
+    "url": "git+https://github.com/mchbaade/vue-material-design-icon-picker.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -13,7 +13,7 @@
     "vuejs",
     "icon",
     "picker",
-    "fontawesome",
+    "mdi",
     "nuxtjs",
     "vue",
     "component"
@@ -21,13 +21,13 @@
   "author": "Jonson B. <www.jbc.bd@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RightBrainTechBD/vue-awesome-icon-picker/issues"
+    "url": "https://github.com/mchbaade/vue-material-design-icon-picker/issues"
   },
-  "homepage": "https://github.com/RightBrainTechBD/vue-awesome-icon-picker#readme",
-  "main": "dist/vue-awesome-icon-picker.ssr.js",
-  "browser": "dist/vue-awesome-icon-picker.esm.js",
-  "module": "dist/vue-awesome-icon-picker.esm.js",
-  "unpkg": "dist/vue-awesome-icon-picker.min.js",
+  "homepage": "https://github.com/mchbaade/vue-material-design-icon-picker#readme",
+  "main": "dist/vue-material-design-icon-picker.ssr.js",
+  "browser": "dist/vue-material-design-icon-picker.esm.js",
+  "module": "dist/vue-material-design-icon-picker.esm.js",
+  "unpkg": "dist/vue-material-design-icon-picker.min.js",
   "files": [
     "dist/*",
     "src/**/*.vue"

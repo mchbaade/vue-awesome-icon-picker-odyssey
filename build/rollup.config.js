@@ -71,7 +71,7 @@ if (!argv.format || argv.format === 'es') {
     ...baseConfig,
     external,
     output: {
-      file: 'dist/vue-awesome-icon-picker.esm.js',
+      file: 'dist/vue-material-design-icon-picker.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -106,9 +106,9 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue-awesome-icon-picker.ssr.js',
+      file: 'dist/vue-material-design-icon-picker.ssr.js',
       format: 'cjs',
-      name: 'VueAwesomeIconPicker',
+      name: 'VueMaterialDesignIconPicker',
       exports: 'named',
       globals,
     },
@@ -136,9 +136,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/vue-awesome-icon-picker.min.js',
+      file: 'dist/vue-material-design-icon-picker.min.js',
       format: 'iife',
-      name: 'VueAwesomeIconPicker',
+      name: 'VueMaterialDesignIconPicker',
       exports: 'named',
       globals,
     },

@@ -52,8 +52,6 @@
                   </div>
                 </li>
               </ul>
-
-
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@
   import("@mdi/font/css/materialdesignicons.css");
 
   export default {
-    name: 'VueAwesomeIconPicker',
+    name: 'VueMaterialDesignIconPicker',
     props: {
       colorMdi: {
         type: String,

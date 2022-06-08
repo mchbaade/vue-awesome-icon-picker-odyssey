@@ -1,11 +1,11 @@
 // Import vue component
-import component from '@/vue-awesome-icon-picker.vue';
+import component from '@/vue-material-design-icon-picker.vue';
 
 // install function executed by Vue.use()
-const install = function installVueAwesomeIconPicker(Vue) {
+const install = function installVueMaterialDesignIconPicker(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component('VueAwesomeIconPicker', component);
+  Vue.component('VueMaterialDesignIconPicker', component);
 };
 
 // Create module definition for Vue.use()
