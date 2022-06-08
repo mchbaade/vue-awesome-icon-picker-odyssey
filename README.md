@@ -1,6 +1,6 @@
-# VueAwesomeIconPicker
+# VueMaterialDesignIconPicker
 
-A Vue.js icon picker component to easily pick a FontAwesome 5 Icon & use it.
+A Vue.js icon picker component to easily pick a MaterialDesignIcon & use it.
 
 ![print screen](docs/img/btn.PNG)
 
@@ -19,33 +19,33 @@ A Vue.js icon picker component to easily pick a FontAwesome 5 Icon & use it.
 Install using `npm`   
 
 ```
-npm install --save @rightbraintechbd/vue-awesome-icon-picker
+npm install --save vue-material-design-icon-picker
 ```
 
 OR use it via `cdn`   
 
 ```html
-<script src="https://unpkg.com/@rightbraintechbd/vue-awesome-icon-picker@1.1.0/dist/vue-awesome-icon-picker.min.js"></script>
+<script src="https://unpkg.com/vue-material-design-icon-picker@1.0.0/dist/vue-material-design-icon-picker.min.js"></script>
 ```
 
 Then Register The Component Globally:
 
 ```javascript
 import Vue from 'vue';
-import VueAwesomeIconPicker from '@rightbraintechbd/vue-awesome-icon-picker';
+import VueMaterialDesignIconPicker from 'vue-material-design-icon-picker';
 
-Vue.component('vue-awesome-icon-picker', VueAwesomeIconPicker)
+Vue.component('vue-material-design-icon-picker', VueMaterialDesignIconPicker)
 ```
 
 OR use it in a Component:
 
 ```javascript
-import VueAwesomeIconPicker from '@rightbraintechbd/vue-awesome-icon-picker';
+import VueMaterialDesignIconPicker from 'vue-material-design-icon-picker';
 
 export default {
-    name: 'YourAwesomeComponent',
+    name: 'YourMaterialDesignComponent',
     components: {
-        'vue-awesome-icon-picker': VueAwesomeIconPicker
+        'vue-material-design-icon-picker': VueMaterialDesignIconPicker
     },
 }
 ```
@@ -56,16 +56,16 @@ export default {
 Use it like:
 
 ```html
-<vue-awesome-icon-picker />
+<vue-material-design-icon-picker />
 ```
 
 
 ## Configuration
 
-You can also pass Options as props in the `vue-awesome-icon-picker` component as you can see the example below
+You can also pass Options as props in the `vue-material-design-icon-picker` component as you can see the example below
 
 ```html
-<vue-awesome-icon-picker :icon-preview="false" />
+<vue-material-design-icon-picker :icon-preview="false" />
 ```
 Remember that all options are optional and you can check the default values below:
 
@@ -77,14 +77,14 @@ Remember that all options are optional and you can check the default values belo
  */
 button: {
     type: String,
-    default: 'Pick A Icon'
+    default: 'Escolha um ícone'
 },
 /**
  * Header Title
  */
 title: {
     type: String,
-    default: 'Vue Awesome Icon Picker'
+    default: 'Escolha um ícone'
 },
 /**
  * Whether the Icon should displayed or not
@@ -97,10 +97,10 @@ iconPreview: {
 
 ## Events
 
-VueAwesomeIconPicker will emit a `selected(icon)` event when user selects an icon.
+VueMaterialDesignIconPicker will emit a `selected(icon)` event when user selects an icon.
 
 ```html
-<vue-awesome-icon-picker @selected="onIconSelected" />
+<vue-material-design-icon-picker @selected="onIconSelected" />
 ```
 
 ```javascript
@@ -112,11 +112,3 @@ VueAwesomeIconPicker will emit a `selected(icon)` event when user selects an ico
     }
 }
 ```
-
-It will emit an `Object` containing icon data like `{ type, name }` 
-
-```javascript
-{ type: 'fab', name: 'facebook' }
-```
-
-[MIT](http://opensource.org/licenses/MIT)
