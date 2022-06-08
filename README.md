@@ -65,7 +65,7 @@ Use it like:
 You can also pass Options as props in the `vue-material-design-icon-picker` component as you can see the example below
 
 ```html
-<vue-material-design-icon-picker :icon-preview="false" />
+<vue-material-design-icon-picker :icon-preview="false" :colorMdi="32C3BC" :iconPlaceholder="bone-off" />
 ```
 Remember that all options are optional and you can check the default values below:
 
