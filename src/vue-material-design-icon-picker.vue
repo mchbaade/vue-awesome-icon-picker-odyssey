@@ -62,7 +62,6 @@
 
 <script>
   import ripIcons from './assets/icons';
-  import('@fortawesome/fontawesome-free/js/all');
   import("@mdi/font/css/materialdesignicons.css");
 
   export default {

@@ -1,6 +1,6 @@
 {
   "name": "vue-material-design-icon-picker",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Um componente seletor de ícone baseado em Vue.js com materialDesignIcon",
   "repository": {
     "type": "git",
@@ -44,12 +44,12 @@
     "@mdi/js": "^6.6.96",
     "@mdi/svg": "^6.6.96",
     "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "@mdi/font": "^6.6.96"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
-    "@mdi/font": "^6.6.96",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-json": "^4.1.0",
