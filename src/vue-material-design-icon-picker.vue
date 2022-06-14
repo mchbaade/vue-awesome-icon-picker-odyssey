@@ -18,8 +18,8 @@
         <div class="rip-popup-content">
           <div class="rip-search">
             <div class="rip-input">
-              <label for="ripSearch" style="display: none;">Search for Icon</label>
-              <input id="ripSearch" placeholder="Search for Icon" v-model="searchText" @input="searchTextChanged">
+              <label for="ripSearch" style="display: none;">Pesquise por um ícone</label>
+              <input id="ripSearch" placeholder="Pesquise por um ícone" v-model="searchText" @input="searchTextChanged">
               <span class="input-append">
                   <i class="mdi mdi-search"></i>
               </span>
@@ -32,10 +32,6 @@
             </div>
 
             <div class="rip-icons" v-show="!loading">
-
-              <h4 class="icon-title">
-                Regular Icons
-              </h4>
               <p style="text-align: center;" v-if="regularIcons.length <= 0">
                 <i class="mdi mdi-eye-slash"></i>
                 Sorry, No icons found!
